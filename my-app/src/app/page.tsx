@@ -1,10 +1,54 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Shield, Users, Star } from "lucide-react";
+import { TrendingUp, Shield, Users, Star, Newspaper } from "lucide-react";
 import Link from "next/link";
 
-export default function Home() {
+interface Article {
+  title: string;
+  description: string;
+  url: string;
+  image: string;
+  publishedAt: string;
+  source: {
+    name: string;
+    url: string;
+  };
+}
+
+async function getNews() {
+  const apiKey = process.env.GNEWS_API_KEY;
+  const baseUrl = process.env.GNEWS_API_BASE_URL;
+
+  if (!apiKey || !baseUrl) {
+    console.error("Variáveis de ambiente da GNews não configuradas!");
+    return [];
+  }
+
+  const query = "imóveis";
+  const url = `${baseUrl}?q=${query}&lang=pt&country=br&max=3&apikey=${apiKey}`;
+
+  try {
+    const res = await fetch(url, {
+      next: { revalidate: 3600 },
+    });
+
+    if (!res.ok) {
+      console.error("Falha ao buscar notícias da GNews:", await res.text());
+      return [];
+    }
+
+    const data = await res.json();
+    return data.articles || [];
+  } catch (error: unknown) {
+    console.error("Erro de conexão com a API GNews:", error);
+    return [];
+  }
+}
+
+export default async function Home() {
+  const articles: Article[] = await getNews();
+
   return (
     <div className="min-h-screen">
       <section className="bg-gradient-to-br from-background to-card py-20 px-4">
@@ -58,7 +102,6 @@ export default function Home() {
                 </p>
               </CardContent>
             </Card>
-
             <Card className="text-center">
               <CardHeader>
                 <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
@@ -73,7 +116,6 @@ export default function Home() {
                 </p>
               </CardContent>
             </Card>
-
             <Card className="text-center">
               <CardHeader>
                 <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
@@ -101,7 +143,6 @@ export default function Home() {
               Veja como ajudamos nossos clientes a alcançar seus objetivos
             </p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card>
               <CardHeader>
@@ -125,7 +166,6 @@ export default function Home() {
                 <p className="text-sm font-medium">- Maria Silva, Empresária</p>
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader>
                 <div className="flex items-center space-x-1 mb-2">
@@ -148,7 +188,6 @@ export default function Home() {
                 <p className="text-sm font-medium">- João Santos, Engenheiro</p>
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader>
                 <div className="flex items-center space-x-1 mb-2">
@@ -174,6 +213,58 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {articles && articles.length > 0 && (
+        <section className="py-20 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-balance mb-4">
+                Notícias do Mercado Imobiliário
+              </h2>
+              <p className="text-xl text-muted-foreground text-pretty">
+                Mantenha-se informado com as últimas novidades do setor.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {articles.map((article, index) => (
+                <Link
+                  href={article.url}
+                  key={index}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <Card className="h-full hover:shadow-lg transition-shadow duration-300 flex flex-col">
+                    {article.image ? (
+                      <div className="relative w-full h-48">
+                        <img
+                          src={article.image}
+                          alt={article.title}
+                          className="w-full h-full object-cover rounded-t-lg"
+                          loading="lazy"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-full h-48 bg-secondary flex items-center justify-center rounded-t-lg">
+                        <Newspaper className="h-12 w-12 text-muted-foreground" />
+                      </div>
+                    )}
+                    <CardHeader>
+                      <CardTitle className="text-lg leading-snug">
+                        {article.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <p className="text-muted-foreground text-sm line-clamp-3">
+                        {article.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">

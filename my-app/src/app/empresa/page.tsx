@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-export default function EmpresaPage() {
+export default function Enterprise() {
   return (
     <div className="min-h-screen">
       <section className="bg-gradient-to-br from-background to-card py-20 px-4">
