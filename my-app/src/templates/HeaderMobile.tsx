@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Building2 } from "lucide-react";
+import { ModeToggle } from "@/components/ModeToggle";
 
 export function HeaderMobile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,6 +39,7 @@ export function HeaderMobile() {
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
+          <ModeToggle />
         </div>
       </nav>
       {isOpen && (

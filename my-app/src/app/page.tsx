@@ -109,7 +109,7 @@ export default function Home() {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                      className="h-4 w-4 fill-yellow-500 text-yellow-500"
                     />
                   ))}
                 </div>
@@ -132,7 +132,7 @@ export default function Home() {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                      className="h-4 w-4 fill-yellow-500 text-yellow-500"
                     />
                   ))}
                 </div>
@@ -155,7 +155,7 @@ export default function Home() {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                      className="h-4 w-4 fill-yellow-500 text-yellow-500"
                     />
                   ))}
                 </div>

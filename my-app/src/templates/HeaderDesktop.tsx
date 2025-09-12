@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Building2 } from "lucide-react";
+import { ModeToggle } from "@/components/ModeToggle";
 
 export function HeaderDesktop() {
   return (
@@ -41,6 +42,7 @@ export function HeaderDesktop() {
             >
               Contato
             </Link>
+            <ModeToggle />
           </div>
         </div>
       </nav>

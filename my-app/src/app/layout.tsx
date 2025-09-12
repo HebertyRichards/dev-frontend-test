@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Header } from "@/templates/Header";
 import { Footer } from "@/templates/Footer";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: {
@@ -36,11 +37,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
         <Header />
         {children}
         <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
