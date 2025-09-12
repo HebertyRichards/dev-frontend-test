@@ -1,4 +1,7 @@
 import type { Metadata, Viewport } from "next";
+import { Header } from "@/templates/Header";
+import { Footer } from "@/templates/Footer";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
@@ -34,7 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
