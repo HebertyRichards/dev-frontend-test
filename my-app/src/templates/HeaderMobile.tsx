@@ -22,7 +22,7 @@ export function HeaderMobile() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="text-xl font-bold text-primary">
-              Projeto
+              InvestPro
             </Link>
           </div>
           <Button
