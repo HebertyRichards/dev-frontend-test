@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { features } from "@/data/examples";
+import { features } from "@/data/index";
 
 export function WhyUsSection() {
   return (

@@ -1,4 +1,4 @@
-import { TrendingUp, Shield, Users, LucideIcon } from "lucide-react";
+import { TrendingUp, Shield, Users, Mail, Phone, MapPin, LucideIcon } from "lucide-react";
 
 export const features: { icon: LucideIcon; title: string; description: string }[] = [
     {
@@ -21,23 +21,23 @@ export const features: { icon: LucideIcon; title: string; description: string }[
     },
   ];
 
-export const testimonials = [
+export const testimonialsHome = [
     {
       title: "Apartamento para Investimento",
       quote:
-        "Consegui um apartamento de 2 quartos que gera R$ 2.800/mês de aluguel. ROI de 8,5% ao ano!",
+        `"Consegui um apartamento de 2 quartos que gera R$ 2.800/mês de aluguel. ROI de 8,5% ao ano!"`,
       author: "Maria Silva, Empresária",
     },
     {
       title: "Casa Própria Financiada",
       quote:
-        "Encontrei a casa perfeita dentro do meu orçamento. Financiamento aprovado em 15 dias!",
+        `"Encontrei a casa perfeita dentro do meu orçamento. Financiamento aprovado em 15 dias!"`,
       author: "João Santos, Engenheiro",
     },
     {
       title: "Portfólio Diversificado",
       quote:
-        "Construí um portfólio de 3 imóveis em 2 anos. Renda passiva de R$ 6.500/mês!",
+        `"Construí um portfólio de 3 imóveis em 2 anos. Renda passiva de R$ 6.500/mês!"`,
       author: "Ana Costa, Médica",
     },
   ];
@@ -63,5 +63,19 @@ export const testimonials = [
       title: "Acompanhamento",
       description: "Suporte contínuo até a concretização do investimento.",
     },
+  ];
+  
+
+  export const footerLinks = [
+    { href: "/", text: "Home" },
+    { href: "/empresa", text: "Empresa" },
+    { href: "/servicos", text: "Serviços" },
+    { href: "/contato", text: "Contato" },
+  ];
+  
+  export const contactInfo: { icon: LucideIcon; text: string; href?: string }[] = [
+    { icon: Phone, text: "(11) 9999-9999", href: "tel:+5511999999999" },
+    { icon: Mail, text: "contato@investpro.com.br", href: "mailto:contato@investpro.com.br" },
+    { icon: MapPin, text: "São Paulo, SP" },
   ];
   

@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Star } from "lucide-react";
-import { testimonials } from "@/data/examples";
+import { testimonialsHome } from "@/data/index";
 
 function Stars() {
   return (
@@ -25,7 +25,7 @@ export function TestimonialsSection() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
+          {testimonialsHome.map((testimonial) => (
             <Card key={testimonial.author}>
               <CardHeader>
                 <Stars />
@@ -33,7 +33,7 @@ export function TestimonialsSection() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
-                  "{testimonial.quote}"
+                  {testimonial.quote}
                 </p>
                 <p className="text-sm font-medium">- {testimonial.author}</p>
               </CardContent>

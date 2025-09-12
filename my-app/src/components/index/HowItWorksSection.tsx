@@ -1,4 +1,4 @@
-import { steps } from "@/data/examples";
+import { steps } from "@/data/index";
 export function HowItWorksSection() {
   return (
     <section className="py-20 px-4">

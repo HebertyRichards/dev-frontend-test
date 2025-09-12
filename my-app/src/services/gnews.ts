@@ -1,4 +1,4 @@
-import { Article } from "@/types/news"; // Supondo que seus tipos estão aqui
+import { Article } from "@/types/news";
 
 export async function getNews(): Promise<Article[]> {
   const apiKey = process.env.GNEWS_API_KEY;
@@ -10,12 +10,11 @@ export async function getNews(): Promise<Article[]> {
   }
 
   const query = "imóveis";
-  // Alteração principal: max=3 foi alterado para max=10
   const url = `${baseUrl}?q=${query}&lang=pt&country=br&max=10&apikey=${apiKey}`;
 
   try {
     const res = await fetch(url, {
-      next: { revalidate: 1800 }, // Revalida a cada 30 minutos
+      next: { revalidate: 1800 },
     });
 
     if (!res.ok) {
