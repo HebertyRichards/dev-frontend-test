@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { clientTypes } from "@/data";
 import { profileTypes } from "@/data";
+import { motion } from "framer-motion";
 
 export default function ClientTypesAnimation() {
   const [activeClient, setActiveClient] = useState(0);
@@ -26,7 +27,13 @@ export default function ClientTypesAnimation() {
   }, []);
 
   return (
-    <section className="py-20 px-4 bg-slate-200 dark:bg-gray-800">
+    <motion.main
+      className="py-20 px-4 bg-slate-200 dark:bg-gray-800"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-balance mb-4">
@@ -157,6 +164,6 @@ export default function ClientTypesAnimation() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.main>
   );
 }

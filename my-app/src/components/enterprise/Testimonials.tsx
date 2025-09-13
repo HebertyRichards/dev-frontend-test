@@ -1,6 +1,29 @@
+"use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { testimonials } from "@/data/enterprise";
 import { Star } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: "circOut",
+    },
+  },
+};
 
 export function Testimonials() {
   return (
@@ -14,44 +37,49 @@ export function Testimonials() {
             Depoimentos reais de quem confia na InvestPro
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {testimonials.map((testimonial, index) => (
-            <Card
-              key={index}
-              className="transition duration-500 hover:border-gray-900 dark:bg-slate-900 dark:hover:border-indigo-200 hover:-translate-y-1"
-            >
-              <CardHeader>
-                <div className="flex items-center space-x-1 mb-2">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-4 w-4 fill-yellow-500 text-yellow-500"
-                    />
-                  ))}
-                </div>
-                <CardTitle className="text-lg"></CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  {testimonial.quote}
-                </p>
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                    <span className="text-sm font-bold text-primary-foreground">
-                      {testimonial.initials}
-                    </span>
+            <motion.div key={index} variants={itemVariants}>
+              <Card className="h-full transition duration-500 hover:border-gray-900 dark:bg-slate-900 dark:hover:border-indigo-200 hover:-translate-y-1">
+                <CardHeader>
+                  <div className="flex items-center space-x-1 mb-2">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <Star
+                        key={i}
+                        className="h-4 w-4 fill-yellow-500 text-yellow-500"
+                      />
+                    ))}
                   </div>
-                  <div>
-                    <p className="font-medium">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {testimonial.role}
-                    </p>
+                  <CardTitle className="text-lg"></CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    {testimonial.quote}
+                  </p>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                      <span className="text-sm font-bold text-primary-foreground">
+                        {testimonial.initials}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-medium">{testimonial.author}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {testimonial.role}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

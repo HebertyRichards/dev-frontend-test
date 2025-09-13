@@ -13,6 +13,7 @@ import {
 import { Newspaper } from "lucide-react";
 import Link from "next/link";
 import { Article, NewsSectionProps } from "@/types/news";
+import { motion } from "framer-motion";
 
 function ArticleCard({ article }: { article: Article }) {
   return (
@@ -60,7 +61,13 @@ export function NewsSection({ articles }: NewsSectionProps) {
   );
 
   return (
-    <section className="py-20 px-4 dark:bg-slate-900 bg-slate-100">
+    <motion.section
+      className="py-20 px-4 dark:bg-slate-900 bg-slate-100"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+    >
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-balance mb-4">
@@ -95,6 +102,6 @@ export function NewsSection({ articles }: NewsSectionProps) {
           <CarouselNext className="hidden md:inline-flex absolute right-2 top-1/2 -translate-y-1/2 z-10" />
         </Carousel>
       </div>
-    </section>
+    </motion.section>
   );
 }

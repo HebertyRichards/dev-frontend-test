@@ -1,3 +1,4 @@
+"use client"
 import {
   Card,
   CardContent,
@@ -6,6 +7,25 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { methodologyData } from "@/data/serviceData";
+import { motion, Variants } from "framer-motion";
+
+const columnLeftVariant: Variants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const columnRightVariant: Variants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 export function Methodology() {
   return (
@@ -20,7 +40,12 @@ export function Methodology() {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={columnLeftVariant}
+          >
             <h3 className="text-2xl font-bold mb-6">
               {methodologyData.methodology.title}
             </h3>
@@ -39,7 +64,13 @@ export function Methodology() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={columnRightVariant}
+          >
           <Card className="hover:border-gray-900 dark:bg-slate-900 dark:hover:border-indigo-200 transition-all duration-500 hover:-translate-y-1">
             <CardHeader>
               <CardTitle>{methodologyData.factors.title}</CardTitle>
@@ -62,6 +93,7 @@ export function Methodology() {
               </div>
             </CardContent>
           </Card>
+        </motion.div>
         </div>
       </div>
     </section>

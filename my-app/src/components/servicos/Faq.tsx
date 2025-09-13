@@ -1,3 +1,4 @@
+"use client";
 import {
   Accordion,
   AccordionContent,
@@ -5,6 +6,23 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { faqData } from "@/data/serviceData";
+import { motion, Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5 },
+  },
+};
 
 export function Faq() {
   return (
@@ -18,9 +36,16 @@ export function Faq() {
             {faqData.subtitle}
           </p>
         </div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={containerVariants}
+        >
         <Accordion type="single" collapsible className="space-y-4">
           {faqData.questions.map((item) => (
-            <AccordionItem value={item.id} key={item.id}>
+          <motion.div key={item.id} variants={itemVariants}>
+            <AccordionItem value={item.id}>
               <AccordionTrigger className="text-left">
                 {item.question}
               </AccordionTrigger>
@@ -28,8 +53,10 @@ export function Faq() {
                 <p className="text-muted-foreground">{item.answer}</p>
               </AccordionContent>
             </AccordionItem>
+          </motion.div>
           ))}
         </Accordion>
+      </motion.div>
       </div>
     </section>
   );

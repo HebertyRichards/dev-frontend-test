@@ -29,17 +29,23 @@ export function HeaderMobile() {
               </span>
             </Link>
           </div>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
-          <ModeToggle />
+          <div className="flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+            >
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </Button>
+            <ModeToggle />
+          </div>
         </div>
       </nav>
       {isOpen && (

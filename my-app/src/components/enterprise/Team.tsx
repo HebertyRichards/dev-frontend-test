@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Card,
   CardContent,
@@ -7,6 +9,28 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { teamMembers } from "@/data/enterprise";
+import { motion, Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+    },
+  },
+};
 
 export function Team() {
   return (
@@ -20,12 +44,16 @@ export function Team() {
             Profissionais qualificados e experientes no mercado imobiliário
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {teamMembers.map((member) => (
-            <Card
-              key={member.name}
-              className="text-center transition-all duration-300 hover:border-gray-900 dark:hover:border-indigo-200 hover:-translate-y-1 dark:bg-slate-900"
-            >
+            <motion.div key={member.name} variants={itemVariants}>
+              <Card className="text-center transition-all duration-300 hover:border-gray-900 dark:hover:border-indigo-200 hover:-translate-y-1 dark:bg-slate-900">
               <CardHeader className="pt-8">
                 <div className="mx-auto w-24 h-24 mb-4 rounded-full overflow-hidden ring-2 ring-primary/30 ring-offset-2 dark:ring-offset-slate-900">
                   <img
@@ -46,8 +74,9 @@ export function Team() {
                 </Badge>
               </CardContent>
             </Card>
+          </motion.div>
           ))}
-        </div>
+      </motion.div>
       </div>
     </section>
   );

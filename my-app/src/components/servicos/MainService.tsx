@@ -1,3 +1,4 @@
+"use client"
 import {
   Card,
   CardContent,
@@ -9,24 +10,59 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { mainServicesData } from "@/data/serviceData";
+import { motion, Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
 
 export function MainServices() {
   return (
-    <section className="py-20 px-4 bg-slate-200 dark:bg-gray-800">
+    <main className="py-20 px-4 bg-slate-200 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-balance mb-4">
+          <motion.h2
+            className="text-3xl lg:text-4xl font-bold text-balance mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             {mainServicesData.title}
-          </h2>
-          <p className="text-xl text-muted-foreground text-pretty">
+          </motion.h2>
+          <motion.p
+            className="text-xl text-muted-foreground text-pretty"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             {mainServicesData.subtitle}
-          </p>
+          </motion.p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+        >
           {mainServicesData.services.map((service, index) => (
-            <Card
-              key={index}
-              className="relative overflow-hidden bg-white hover:border-gray-900
+            <motion.div key={index} variants={cardVariants}>
+              <Card className="relative overflow-hidden bg-white hover:border-gray-900
                       dark:bg-slate-900 border-2 cursor-pointer 
                       transition-all duration-500 
                       dark:hover:border-indigo-200 hover:-translate-y-1"
@@ -68,10 +104,11 @@ export function MainServices() {
                   </Button>
                 )}
               </CardContent>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </main>
   );
 }
