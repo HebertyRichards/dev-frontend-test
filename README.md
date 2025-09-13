@@ -90,7 +90,7 @@ O design transmite **confiança e seriedade**, utilizando um sistema de cores co
 ### 1. Clonando o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/HebertyRichards/dev-frontend-test.git
 cd my-app
 ```
 
