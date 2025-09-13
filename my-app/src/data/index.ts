@@ -1,4 +1,4 @@
-import { TrendingUp, Shield, Users, Mail, Phone, MapPin, LucideIcon } from "lucide-react";
+import { TrendingUp, Shield, Users, Mail, Phone, MapPin, LucideIcon, Building2, Home, User, Briefcase, GraduationCap, Heart } from "lucide-react";
 
 export const features: { icon: LucideIcon; title: string; description: string }[] = [
     {
@@ -77,5 +77,67 @@ export const testimonialsHome = [
     { icon: Phone, text: "(11) 9999-9999", href: "tel:+5511999999999" },
     { icon: Mail, text: "contato@investpro.com.br", href: "mailto:contato@investpro.com.br" },
     { icon: MapPin, text: "São Paulo, SP" },
+  ];
+  
+  export const clientTypes = [
+    {
+      icon: User,
+      title: "Investidor Iniciante",
+      description: "Primeira compra de imóvel para investimento",
+      badge: "Pessoa Física",
+      color: "bg-blue-500/10 text-blue-600",
+      stats: "35% dos clientes",
+    },
+    {
+      icon: TrendingUp,
+      title: "Investidor Experiente",
+      description: "Expansão de portfólio imobiliário",
+      badge: "Alto Patrimônio",
+      color: "bg-green-500/10 text-green-600",
+      stats: "28% dos clientes",
+    },
+    {
+      icon: Home,
+      title: "Casa Própria",
+      description: "Realização do sonho da casa própria",
+      badge: "Pessoa Física",
+      color: "bg-purple-500/10 text-purple-600",
+      stats: "25% dos clientes",
+    },
+    {
+      icon: Building2,
+      title: "Empresas",
+      description: "Investimento corporativo em imóveis",
+      badge: "Pessoa Jurídica",
+      color: "bg-orange-500/10 text-orange-600",
+      stats: "12% dos clientes",
+    },
+  ];
+  
+  export const profileTypes = [
+    {
+      icon: GraduationCap,
+      title: "Profissionais Liberais",
+      subtitle: "Médicos, Advogados, Engenheiros",
+      color: "text-cyan-600",
+    },
+    {
+      icon: Briefcase,
+      title: "Executivos",
+      subtitle: "Diretores, Gerentes, Empresários",
+      color: "text-indigo-600",
+    },
+    {
+      icon: Users,
+      title: "Famílias",
+      subtitle: "Casais e famílias buscando estabilidade",
+      color: "text-pink-600",
+    },
+    {
+      icon: Heart,
+      title: "Aposentados",
+      subtitle: "Investimento para renda complementar",
+      color: "text-emerald-600",
+    },
   ];
   

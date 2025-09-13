@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 
 export function Testimonials() {
   return (
-    <section className="py-20 px-4">
+    <section className="dark:bg-slate-900 bg-slate-100 py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-balance mb-4">
@@ -16,7 +16,10 @@ export function Testimonials() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index}>
+            <Card
+              key={index}
+              className="transition duration-500 hover:border-gray-900 dark:bg-slate-900 dark:hover:border-indigo-200 hover:-translate-y-1"
+            >
               <CardHeader>
                 <div className="flex items-center space-x-1 mb-2">
                   {Array.from({ length: testimonial.rating }).map((_, i) => (

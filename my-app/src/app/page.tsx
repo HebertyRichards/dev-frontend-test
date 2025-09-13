@@ -4,6 +4,7 @@ import { TestimonialsSection } from "@/components/index/TestimonialsSection";
 import { NewsSection } from "@/components/index/NewsSection";
 import { HowItWorksSection } from "@/components/index/HowItWorksSection";
 import { CallToActionSection } from "@/components/index/CallToActionSection";
+import ClientTypesAnimation from "@/components/index/Clients";
 import { getNews } from "@/services/gnews";
 
 export default async function Home() {
@@ -13,6 +14,7 @@ export default async function Home() {
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow">
         <HeroSection />
+        <ClientTypesAnimation />
         <WhyUsSection />
         <TestimonialsSection />
         {articles && articles.length > 0 && <NewsSection articles={articles} />}

@@ -14,7 +14,7 @@ function Stars() {
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-card py-20 px-4">
+    <section className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-balance mb-4">
@@ -26,7 +26,10 @@ export function TestimonialsSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonialsHome.map((testimonial) => (
-            <Card key={testimonial.author}>
+            <Card
+              key={testimonial.author}
+              className="bg-white transition-all duration-500 dark:bg-slate-900 border-transparent hover:border-4 hover:border-indigo-200 hover:-translate-y-1"
+            >
               <CardHeader>
                 <Stars />
                 <CardTitle className="text-lg">{testimonial.title}</CardTitle>

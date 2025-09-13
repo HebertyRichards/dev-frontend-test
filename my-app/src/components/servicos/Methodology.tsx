@@ -9,7 +9,7 @@ import { methodologyData } from "@/data/serviceData";
 
 export function Methodology() {
   return (
-    <section className="bg-card py-20 px-4">
+    <section className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-balance mb-4">
@@ -40,7 +40,7 @@ export function Methodology() {
               ))}
             </div>
           </div>
-          <Card>
+          <Card className="hover:border-gray-900 dark:bg-slate-900 dark:hover:border-indigo-200 transition-all duration-500 hover:-translate-y-1">
             <CardHeader>
               <CardTitle>{methodologyData.factors.title}</CardTitle>
               <CardDescription>

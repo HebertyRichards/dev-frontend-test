@@ -15,13 +15,13 @@ export const complementaryServicesData = {
         icon: Shield,
         title: "Due Diligence",
         description: "Verificação completa da documentação e situação legal",
-        iconClassName: "text-secondary",
+        iconClassName: "text-primary",
       },
       {
         icon: Users,
         title: "Negociação",
         description: "Representamos seus interesses nas negociações",
-        iconClassName: "text-accent",
+        iconClassName: "text-primary",
       },
       {
         icon: Clock,
@@ -90,8 +90,8 @@ export const complementaryServicesData = {
       },
       {
         icon: PieChart,
-        iconContainerClass: "bg-secondary/10",
-        iconClass: "text-secondary",
+        iconContainerClass: "bg-primary/10",
+        iconClass: "text-primary",
         title: "Análise de Portfólio",
         description: "Otimização e diversificação do seu portfólio imobiliário",
         features: [
@@ -100,12 +100,12 @@ export const complementaryServicesData = {
           "Análise de rentabilidade",
           "Recomendações de otimização",
         ],
-        decoratorClass: "bg-secondary/10",
+        decoratorClass: "bg-primary/10",
       },
       {
         icon: FileText,
-        iconContainerClass: "bg-accent/10",
-        iconClass: "text-accent",
+        iconContainerClass: "bg-primary/10",
+        iconClass: "text-primary",
         title: "Simulação de Financiamento",
         description: "Cálculos precisos e comparação de opções de financiamento",
         features: [
@@ -114,7 +114,7 @@ export const complementaryServicesData = {
           "Análise de viabilidade",
           "Suporte na documentação",
         ],
-        decoratorClass: "bg-accent/10",
+        decoratorClass: "bg-primary/10",
       },
     ],
   };
@@ -200,7 +200,7 @@ export const complementaryServicesData = {
   export const serviceHeroData = {
     badge: "Nossos Serviços",
     title: "Consultoria Completa em Investimento Imobiliário",
-    highlightedWord: "Completa",
+    highlightedWord: " Completa",
     subtitle:
       "Oferecemos uma gama completa de serviços para maximizar seus investimentos imobiliários com segurança e transparência.",
   };

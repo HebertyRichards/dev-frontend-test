@@ -44,27 +44,29 @@ export const missionVisionValues = [
   
   export const teamMembers = [
     {
-      initials: "RS",
+      imageUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=687&auto=format&fit=crop",
       name: "Roberto Silva",
       role: "CEO & Fundador",
       description: "15 anos de experiência no mercado imobiliário. Especialista em investimentos de alto padrão.",
       badge: "CRECI 12345-SP",
     },
     {
-      initials: "MC",
+      imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1170&auto=format&fit=crop",
       name: "Marina Costa",
       role: "Diretora de Análise",
       description: "Economista com MBA em Finanças. Especialista em análise de viabilidade de investimentos.",
       badge: "CFA Charterholder",
     },
     {
-      initials: "LS",
+      imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=687&auto=format&fit=crop",
       name: "Lucas Santos",
       role: "Gerente de Relacionamento",
       description: "10 anos em consultoria financeira. Especialista em atendimento personalizado.",
       badge: "CFP Certificado",
     },
   ];
+  
+  
   
   export const certifications = [
     { title: "CRECI Ativo", description: "Registro ativo no Conselho Regional de Corretores de Imóveis" },

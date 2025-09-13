@@ -4,14 +4,15 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="bg-gradient-to-br from-background to-card py-20 px-4">
+    <section className="py-20 px-4 bg-slate-50 dark:bg-slate-950">
       <div className="container mx-auto">
         <div className="text-center max-w-4xl mx-auto">
-          <Badge variant="secondary" className="mb-4">
+          <Badge variant="secondary" className="mb-4 bg-green-500 font-bold">
             Consultoria Especializada
           </Badge>
           <h1 className="text-4xl lg:text-6xl font-bold text-balance mb-6">
-            Invista com <span className="text-primary">Segurança</span>
+            Invista com{" "}
+            <span className="text-teal-500 font-bold">Segurança</span>
           </h1>
           <p className="text-xl text-muted-foreground text-pretty mb-8">
             Recomendações personalizadas de investimento imobiliário baseadas no

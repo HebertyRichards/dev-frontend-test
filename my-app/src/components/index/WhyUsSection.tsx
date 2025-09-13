@@ -16,7 +16,10 @@ export function WhyUsSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature) => (
-            <Card key={feature.title} className="text-center">
+            <Card
+              key={feature.title}
+              className="text-center transition-all duration-500 bg-white dark:bg-slate-900 border-transparent hover:border-4 hover:border-indigo-200 hover:-translate-y-1"
+            >
               <CardHeader>
                 <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <feature.icon className="h-6 w-6 text-primary" />

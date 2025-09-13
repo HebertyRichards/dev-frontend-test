@@ -15,7 +15,7 @@ export function ComplementaryServices() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {complementaryServicesData.services.map((service, index) => (
-            <Card key={index} className="text-center">
+            <Card key={index} className="text-center hover:border-gray-900 dark:bg-slate-900 dark:hover:border-indigo-200 transition-all duration-500 hover:-translate-y-1">
               <CardHeader>
                 <service.icon
                   className={`mx-auto h-8 w-8 ${service.iconClassName} mb-2`}

@@ -12,7 +12,7 @@ import { mainServicesData } from "@/data/serviceData";
 
 export function MainServices() {
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 bg-slate-200 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-balance mb-4">
@@ -24,7 +24,13 @@ export function MainServices() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {mainServicesData.services.map((service, index) => (
-            <Card key={index} className="relative overflow-hidden">
+            <Card
+              key={index}
+              className="relative overflow-hidden bg-white hover:border-gray-900
+                      dark:bg-slate-900 border-2 cursor-pointer 
+                      transition-all duration-500 
+                      dark:hover:border-indigo-200 hover:-translate-y-1"
+            >
               <div
                 className={`absolute top-0 right-0 w-20 h-20 ${service.decoratorClass} rounded-bl-full`}
               ></div>
@@ -41,7 +47,7 @@ export function MainServices() {
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-secondary" />
+                      <CheckCircle className="h-4 w-4" />
                       <span className="text-sm">{feature}</span>
                     </li>
                   ))}
@@ -52,16 +58,12 @@ export function MainServices() {
                   </Button>
                 )}
                 {service.title === "Análise de Portfólio" && (
-                  <Button variant="secondary" className="w-full" asChild>
+                  <Button className="w-full" asChild>
                     <Link href="/contato">Analisar Portfólio</Link>
                   </Button>
                 )}
                 {service.title === "Simulação de Financiamento" && (
-                  <Button
-                    variant="outline"
-                    className="w-full bg-transparent"
-                    asChild
-                  >
+                  <Button className="w-full" asChild>
                     <Link href="/contato">Simular Financiamento</Link>
                   </Button>
                 )}

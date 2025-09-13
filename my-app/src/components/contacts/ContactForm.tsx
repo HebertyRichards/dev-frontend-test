@@ -184,7 +184,7 @@ export function ContactForm() {
   };
 
   return (
-    <Card>
+    <Card className="transition duration-500 hover:border-gray-900 dark:bg-slate-900 dark:hover:border-indigo-200 flex">
       <CardHeader>
         <CardTitle className="flex items-center space-x-2">
           <MessageSquare className="h-5 w-5 text-primary" />

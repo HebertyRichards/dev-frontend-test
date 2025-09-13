@@ -1,7 +1,7 @@
 import { steps } from "@/data/index";
 export function HowItWorksSection() {
   return (
-    <section className="py-20 px-4">
+    <section className="bg-slate-200 dark:bg-slate-800 py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-balance mb-4">
