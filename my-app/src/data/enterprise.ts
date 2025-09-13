@@ -82,7 +82,7 @@ export const missionVisionValues = [
       {
           icon: Phone,
           title: "Telefone",
-          lines: ["(11) 3000-0000", "(11) 99999-9999", "Seg-Sex: 8h às 18h"]
+          lines: ["(11) 3000-0000", "(11) 99999-9999", "Seg-Sex: 8h às 18h", "Sab: 8h ás 14h"]
       },
       {
           icon: Mail,
