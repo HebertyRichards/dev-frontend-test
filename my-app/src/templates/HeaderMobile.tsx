@@ -66,11 +66,11 @@ export function HeaderMobile() {
               Empresa
             </Link>
             <Link
-              href="/produtos"
+              href="/servicos"
               className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium"
               onClick={closeMenu}
             >
-              Produtos
+              Serviços
             </Link>
             <Link
               href="/contato"
