@@ -83,7 +83,7 @@ O design transmite **confiança e seriedade**, utilizando um sistema de cores co
 ### 📌 Pré-requisitos
 
 - [Node.js](https://nodejs.org/) (versão 18.x ou superior)  
-- [pnpm](https://pnpm.io/pt/)
+- [pnpm](https://pnpm.io/pt/) ou [npm](https://www.npmjs.com/)
 
 ---
 
@@ -91,7 +91,7 @@ O design transmite **confiança e seriedade**, utilizando um sistema de cores co
 
 ```bash
 git clone https://github.com/HebertyRichards/dev-frontend-test.git
-cd my-app
+cd dev-frontend-test/my-app
 ```
 
 ---
@@ -99,12 +99,12 @@ cd my-app
 ### 2. Instalando as Dependências
 
 ```bash
-pnpm install
+pnpm install ou  npm install
 ```
 
 ---
 
-### 3. Configurando as Variáveis de Ambiente
+### 3. Configurando as Variáveis de Ambiente (opcional)
 
 Este projeto precisa de uma **API Key da GNews** para buscar notícias.
 
@@ -117,14 +117,14 @@ GNEWS_API_KEY=SUA_CHAVE_API_AQUI
 GNEWS_API_BASE_URL="https://gnews.io/api/v4/search"
 ```
 
-⚠️ **Importante:** O arquivo `.env.local` não deve ser versionado. Ele já está no `.gitignore`.
+⚠️ **Importante:** O arquivo `.env.local` não deve ser versionado. Ele já está no `.gitignore`, mesmo sem a API o projeto funcionará normalmente.
 
 ---
 
 ### 4. Rodando o Servidor de Desenvolvimento
 
 ```bash
-pnpm run dev
+pnpm run dev ou npm run dev
 ```
 
 Abra **http://localhost:3000** no navegador para visualizar o projeto.
